@@ -29,18 +29,16 @@
   <meta name="twitter:image" content="https://DEINE-DOMAIN.de/og-image.jpg"/>
 
   <!-- ═══ MOBILE / PWA ═══ -->
-  <meta name="theme-color" content="#f59e0b"/>
+  <meta name="theme-color" content="#e59400"/>
   <meta name="mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-  <!-- ═══ FONTS: preconnect first, then preload only used weights ═══ -->
-  <!-- Barlow Condensed used: 600, 700, 800, 900 -->
-  <!-- Inter used: 400, 500, 600, 700 -->
+  <!-- ═══ FONTS ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap"/>
 
   <!-- ═══ JSON-LD STRUCTURED DATA ═══ -->
   <script type="application/ld+json">
@@ -159,24 +157,27 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#0d0d0b;
-  --bg-elevated:#141410;
-  --amber:#f59e0b;
-  --amber-light:#fbbf24;
-  --amber-rgb:245,158,11;
-  --text-primary:rgba(255,255,255,1);
-  --text-secondary:rgba(255,255,255,0.87);
-  --text-tertiary:rgba(255,255,255,0.6);
-  --text-muted:rgba(255,255,255,0.4);
-  --border:rgba(255,255,255,0.09);
-  --border-amber:rgba(245,158,11,0.25);
-  --glass-bg:rgba(255,255,255,0.05);
-  --radius-sm:8px;
-  --radius-md:14px;
-  --radius-lg:22px;
-  --radius-xl:32px;
+  --bg:#0c0c0a;
+  --bg-elevated:#131310;
+  --amber:#e59400;
+  --amber-light:#f0ad2e;
+  --amber-rgb:229,148,0;
+  --text-primary:rgba(250,250,245,1);
+  --text-secondary:rgba(250,250,245,0.82);
+  --text-tertiary:rgba(250,250,245,0.55);
+  --text-muted:rgba(250,250,245,0.35);
+  --border:rgba(255,255,255,0.08);
+  --border-amber:rgba(229,148,0,0.22);
+  --glass-bg:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.06);
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --radius-xl:2.5rem;
   --ease-out:cubic-bezier(0.16,1,0.3,1);
-  --ease-back:cubic-bezier(0.34,1.56,0.64,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+  --shadow-tinted:0 20px 40px -15px rgba(12,12,10,0.6);
+  --shadow-amber:0 12px 32px -8px rgba(229,148,0,0.15);
 }
 
 html{scroll-behavior:auto} /* custom smooth scroll handles this */
@@ -184,10 +185,12 @@ html{scroll-behavior:auto} /* custom smooth scroll handles this */
 body{
   background:var(--bg);
   color:var(--text-primary);
-  font-family:'Inter',system-ui,sans-serif;
+  font-family:'Manrope',system-ui,sans-serif;
   font-size:16px;
-  line-height:1.6;
+  line-height:1.65;
   overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 /* ── Grain overlay ── */
@@ -218,7 +221,7 @@ body::before{
   top:0;left:0;
   height:2.5px;
   width:0%;
-  background:linear-gradient(90deg,var(--amber),var(--amber-light),#fff8e7);
+  background:linear-gradient(90deg,var(--amber),var(--amber-light));
   z-index:10000;
   transition:width 0.05s linear;
   box-shadow:0 0 12px rgba(var(--amber-rgb),0.7);
@@ -242,21 +245,21 @@ body::before{
 /* ══════════════════════════════════════
    TYPOGRAPHY
 ══════════════════════════════════════ */
-h1,h2,h3{font-family:'Barlow Condensed',sans-serif;line-height:1.05;letter-spacing:-0.01em}
+h1,h2,h3{font-family:'Outfit',sans-serif;line-height:1.02;letter-spacing:-0.035em;font-variant-numeric:tabular-nums;text-wrap:balance}
 
 /* ══════════════════════════════════════
    SCROLL REVEAL
 ══════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s var(--ease-out),transform 0.65s var(--ease-out)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.75s var(--ease-out),transform 0.75s var(--ease-out)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity 0.65s var(--ease-out),transform 0.65s var(--ease-out)}
+.reveal-left{opacity:0;transform:translateX(-36px);transition:opacity 0.75s var(--ease-out),transform 0.75s var(--ease-out)}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(28px);transition:opacity 0.65s var(--ease-out),transform 0.65s var(--ease-out)}
+.reveal-right{opacity:0;transform:translateX(36px);transition:opacity 0.75s var(--ease-out),transform 0.75s var(--ease-out)}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
-.delay-1{transition-delay:80ms}.delay-2{transition-delay:160ms}
-.delay-3{transition-delay:240ms}.delay-4{transition-delay:320ms}
+.delay-1{transition-delay:100ms}.delay-2{transition-delay:200ms}
+.delay-3{transition-delay:300ms}.delay-4{transition-delay:400ms}
 
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.container{max-width:1240px;margin:0 auto;padding:0 28px}
 
 /* ══════════════════════════════════════
    NAV
@@ -267,14 +270,15 @@ nav{
   transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s;
 }
 nav.scrolled{
-  background:rgba(13,13,11,0.88);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  background:rgba(12,12,10,0.85);
+  backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);
   border-color:var(--border);
+  box-shadow:0 1px 0 rgba(255,255,255,0.03);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
 .nav-brand{display:flex;flex-direction:column;gap:2px}
 .nav-brand-top{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted)}
-.nav-brand-name{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--text-primary)}
+.nav-brand-name{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text-primary)}
 .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
 .btn-ghost{
@@ -283,20 +287,22 @@ nav.scrolled{
   transition:background 0.15s,border-color 0.15s,color 0.15s;white-space:nowrap;
 }
 .btn-ghost:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.18);color:var(--text-primary)}
+.btn-ghost:active{transform:scale(0.98);background:rgba(255,255,255,0.08)}
 
 /* ── Gradient Border CTA ── */
 .btn-primary{
-  padding:10px 22px;border-radius:var(--radius-md);
-  color:#0d0d0b;font-size:13.5px;font-weight:700;text-decoration:none;
+  padding:11px 24px;border-radius:var(--radius-md);
+  color:#0c0c0a;font-size:13.5px;font-weight:700;text-decoration:none;
   cursor:pointer;display:inline-flex;align-items:center;gap:8px;
   position:relative;overflow:hidden;white-space:nowrap;
   border:none;background:var(--amber);
-  transition:transform 0.15s var(--ease-out),box-shadow 0.15s var(--ease-out);
-  animation:cta-breathe 3.5s ease-in-out infinite;
+  transition:transform 0.25s var(--ease-out),box-shadow 0.25s var(--ease-out);
+  animation:cta-breathe 4s ease-in-out infinite;
+  letter-spacing:0.01em;
 }
 .btn-primary::before{
   content:'';position:absolute;inset:-2px;border-radius:calc(var(--radius-md)+2px);
-  background:conic-gradient(from var(--angle,0deg),#f59e0b,#fbbf24,#fff8e7,#f59e0b,#d97706,#f59e0b);
+  background:conic-gradient(from var(--angle,0deg),#e59400,#f0ad2e,#fff8e7,#e59400,#c47d00,#e59400);
   animation:spin-border 3s linear infinite;
   z-index:-1;opacity:0;transition:opacity 0.3s;
 }
@@ -310,10 +316,10 @@ nav.scrolled{
 .btn-primary:hover::after{left:100%}
 .btn-primary:hover{
   transform:translateY(-2px) scale(1.02);
-  box-shadow:0 8px 28px rgba(var(--amber-rgb),0.4);
+  box-shadow:0 12px 32px -6px rgba(var(--amber-rgb),0.35);
   animation:none;
 }
-.btn-primary:active{transform:scale(0.97)}
+.btn-primary:active{transform:translateY(1px) scale(0.98)}
 
 @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
 @keyframes spin-border{to{--angle:360deg}}
@@ -326,8 +332,8 @@ nav.scrolled{
    HERO
 ══════════════════════════════════════ */
 .hero{
-  min-height:92vh;display:grid;
-  grid-template-columns:1fr 1fr;gap:60px;
+  min-height:100dvh;display:grid;
+  grid-template-columns:1fr 1fr;gap:72px;
   align-items:center;padding:80px 0;
   position:relative;overflow:hidden;
 }
@@ -370,16 +376,16 @@ nav.scrolled{
 
 /* Text Scramble h1 — JS fills this */
 .hero-h1{
-  font-size:clamp(3rem,6vw,5.2rem);font-weight:900;
+  font-size:clamp(3rem,5.8vw,5rem);font-weight:900;
   text-transform:uppercase;color:var(--text-primary);
-  margin-bottom:10px;
+  margin-bottom:12px;letter-spacing:-0.04em;line-height:0.98;
   animation:hero-fade-up 0.9s var(--ease-out) 130ms both;
 }
 .hero-h1 .accent{color:var(--amber)}
 
 .hero-sub{
   font-size:clamp(1.6rem,2.5vw,2.2rem);
-  font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  font-family:'Outfit',sans-serif;font-weight:600;
   color:var(--text-tertiary);margin-bottom:24px;
   animation:hero-fade-up 0.9s var(--ease-out) 260ms both;
 }
@@ -429,33 +435,35 @@ nav.scrolled{
 .stat-item:last-child{border-right:none}
 .stat-item:hover{background:rgba(var(--amber-rgb),0.04)}
 .stat-num{
-  font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;
-  color:var(--amber);line-height:1;
+  font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:900;
+  color:var(--amber);line-height:1;letter-spacing:-0.03em;
+  font-variant-numeric:tabular-nums;
 }
 .stat-label{font-size:12.5px;color:var(--text-muted);margin-top:6px;letter-spacing:0.04em}
 
 /* ══════════════════════════════════════
    SECTIONS
 ══════════════════════════════════════ */
-section{padding:88px 0}
+section{padding:100px 0}
 .section-label{
   font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
   color:var(--amber);font-weight:600;margin-bottom:14px;display:block;
 }
 .section-h2{
-  font-size:clamp(2rem,4vw,3.4rem);font-weight:800;text-transform:uppercase;
-  color:var(--text-primary);margin-bottom:16px;
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:800;text-transform:uppercase;
+  color:var(--text-primary);margin-bottom:18px;letter-spacing:-0.035em;
 }
 .section-h2 em{font-style:normal;color:var(--amber)}
-.section-body{font-size:16px;color:var(--text-secondary);line-height:1.75;max-width:560px}
+.section-body{font-size:16px;color:var(--text-secondary);line-height:1.75;max-width:55ch}
 
 /* ── Symptoms ── */
 .symptoms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:40px}
 .symptom-card{
-  display:flex;align-items:flex-start;gap:14px;padding:18px 20px;
-  background:var(--glass-bg);border:1px solid var(--border);border-radius:var(--radius-md);
-  backdrop-filter:blur(18px);
-  transition:transform 0.25s var(--ease-out),border-color 0.25s,box-shadow 0.25s;
+  display:flex;align-items:flex-start;gap:14px;padding:20px 22px;
+  background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-md);
+  backdrop-filter:blur(20px);
+  box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.06);
+  transition:transform 0.35s var(--ease-out),border-color 0.35s,box-shadow 0.35s;
   position:relative;overflow:hidden;
 }
 /* Shimmer effect */
@@ -469,8 +477,8 @@ section{padding:88px 0}
 }
 @keyframes card-shimmer{0%,60%,100%{left:-100%}30%{left:140%}}
 .symptom-card:hover{
-  transform:translateY(-4px);border-color:var(--border-amber);
-  box-shadow:0 12px 32px rgba(0,0,0,0.25),0 0 0 1px rgba(var(--amber-rgb),0.1);
+  transform:translateY(-5px) scale(1.01);border-color:var(--border-amber);
+  box-shadow:var(--shadow-amber),inset 0 1px 0 rgba(255,255,255,0.08);
 }
 .symptom-dot{
   flex-shrink:0;margin-top:3px;width:8px;height:8px;border-radius:50%;
@@ -504,12 +512,12 @@ section{padding:88px 0}
 .process-connector.drawn line{stroke-dashoffset:0}
 
 .process-card{
-  background:var(--glass-bg);border:1px solid var(--border);border-radius:var(--radius-lg);
-  padding:28px 22px;backdrop-filter:blur(18px);
-  transition:border-color 0.28s,box-shadow 0.28s;
+  background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-lg);
+  padding:32px 26px;backdrop-filter:blur(20px);
+  box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.06);
+  transition:border-color 0.35s,box-shadow 0.35s,transform 0.35s var(--ease-out);
   position:relative;overflow:hidden;
   transform-style:preserve-3d;
-  /* tilt handled by JS */
 }
 .process-card::before{
   content:'';position:absolute;
@@ -521,17 +529,17 @@ section{padding:88px 0}
 }
 .process-card:hover{
   border-color:var(--border-amber);
-  box-shadow:0 16px 48px rgba(0,0,0,0.3),0 0 24px rgba(var(--amber-rgb),0.08);
+  box-shadow:var(--shadow-amber),inset 0 1px 0 rgba(255,255,255,0.08);
 }
 .process-num{
   width:52px;height:52px;border-radius:var(--radius-md);
   background:var(--amber);color:#0d0d0b;
-  font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:900;
+  font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;
   display:flex;align-items:center;justify-content:center;
   margin-bottom:20px;box-shadow:0 4px 16px rgba(var(--amber-rgb),0.35);
 }
 .process-title{
-  font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;
+  font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:700;
   text-transform:uppercase;color:var(--text-primary);margin-bottom:12px;
 }
 .process-text{font-size:13.5px;color:var(--text-secondary);line-height:1.7}
@@ -541,9 +549,10 @@ section{padding:88px 0}
 ══════════════════════════════════════ */
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
 .trust-card{
-  padding:32px;border-radius:var(--radius-xl);border:1px solid var(--border);
+  padding:36px;border-radius:var(--radius-xl);border:1px solid var(--glass-border);
   background:var(--glass-bg);
-  transition:transform 0.25s var(--ease-out),border-color 0.25s;
+  box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.05);
+  transition:transform 0.35s var(--ease-out),border-color 0.35s,box-shadow 0.35s;
   position:relative;overflow:hidden;
 }
 .trust-card::before{
@@ -553,7 +562,7 @@ section{padding:88px 0}
   transform:skewX(-20deg);
   animation:card-shimmer 7s ease-in-out infinite;
 }
-.trust-card:hover{transform:translateY(-4px)}
+.trust-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-amber),inset 0 1px 0 rgba(255,255,255,0.08)}
 .trust-card-amber{border-color:var(--border-amber);background:rgba(var(--amber-rgb),0.06)}
 .trust-card-amber:hover{border-color:rgba(var(--amber-rgb),0.45)}
 .trust-card-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:14px}
@@ -565,12 +574,12 @@ section{padding:88px 0}
 /* ══════════════════════════════════════
    FAQ
 ══════════════════════════════════════ */
-.faq-list{margin-top:48px;display:flex;flex-direction:column;gap:10px}
-.faq-item{border:1px solid var(--border);border-radius:var(--radius-md);background:var(--glass-bg);overflow:hidden;transition:border-color 0.2s}
-.faq-item.open{border-color:var(--border-amber)}
+.faq-list{margin-top:48px;display:flex;flex-direction:column;gap:8px;max-width:720px}
+.faq-item{border:1px solid var(--glass-border);border-radius:var(--radius-md);background:var(--glass-bg);overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.04)}
+.faq-item.open{border-color:var(--border-amber);box-shadow:var(--shadow-amber)}
 .faq-q{
   width:100%;background:none;border:none;color:var(--text-primary);
-  font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;
+  font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;
   text-transform:uppercase;text-align:left;padding:22px 24px;cursor:pointer;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
   letter-spacing:0.02em;transition:color 0.2s;
@@ -611,20 +620,22 @@ section{padding:88px 0}
 
 /* Form */
 .form-card{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
-  border-radius:var(--radius-xl);padding:36px;backdrop-filter:blur(24px);
+  background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);
+  border-radius:var(--radius-xl);padding:40px;backdrop-filter:blur(24px);
+  box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .form-title{
-  font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:700;
+  font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;
   text-transform:uppercase;margin-bottom:28px;color:var(--text-primary);
 }
 .form-group{margin-bottom:14px}
 .form-label{display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px}
 .form-input,.form-textarea{
-  width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);
   border-radius:var(--radius-md);color:var(--text-primary);
-  font-family:'Inter',sans-serif;font-size:14px;padding:13px 16px;outline:none;
-  transition:border-color 0.2s,box-shadow 0.25s,background 0.2s;appearance:none;
+  font-family:'Manrope',sans-serif;font-size:14px;padding:14px 18px;outline:none;
+  transition:border-color 0.25s,box-shadow 0.3s,background 0.25s;appearance:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
 }
 .form-input::placeholder,.form-textarea::placeholder{color:var(--text-muted)}
 .form-input:focus,.form-textarea:focus{
@@ -645,10 +656,32 @@ section{padding:88px 0}
 /* ══════════════════════════════════════
    FOOTER
 ══════════════════════════════════════ */
-footer{border-top:1px solid var(--border);padding:32px 0}
+footer{border-top:1px solid var(--border);padding:40px 0}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.footer-brand{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--text-tertiary)}
-.footer-copy{font-size:12px;color:var(--text-muted)}
+.footer-brand{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--text-tertiary);letter-spacing:-0.02em}
+.footer-copy{font-size:12px;color:var(--text-muted);line-height:1.6}
+.footer-links{display:flex;gap:20px;align-items:center}
+.footer-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--amber)}
+
+/* ══════════════════════════════════════
+   SPOTLIGHT BORDER EFFECT
+══════════════════════════════════════ */
+.spotlight-card{position:relative}
+.spotlight-card::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(var(--amber-rgb),0.12),transparent 40%);
+  pointer-events:none;opacity:0;transition:opacity 0.4s;
+}
+.spotlight-card:hover::after{opacity:1}
+
+/* ══════════════════════════════════════
+   SCROLL PROGRESS INDICATOR
+══════════════════════════════════════ */
+.section-divider{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+}
 
 /* ══════════════════════════════════════
    RESPONSIVE
@@ -730,9 +763,9 @@ footer{border-top:1px solid var(--border);padding:32px 0}
       </div>
 
       <div class="hero-trust-strip">
-        <span class="trust-item"><span class="trust-icon">✓</span> Transparente Vorprüfung</span>
-        <span class="trust-item"><span class="trust-icon">✓</span> Keine leeren Versprechen</span>
-        <span class="trust-item"><span class="trust-icon">✓</span> Klare Kostenrichtung</span>
+        <span class="trust-item"><span class="trust-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Transparente Vorprüfung</span>
+        <span class="trust-item"><span class="trust-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Keine leeren Versprechen</span>
+        <span class="trust-item"><span class="trust-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Klare Kostenrichtung</span>
       </div>
     </div>
 
@@ -742,58 +775,58 @@ footer{border-top:1px solid var(--border);padding:32px 0}
         <svg viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animiertes Radar-Display: Garmin Alpha GPS-Gerät mit defektem Bildschirm">
           <defs>
             <radialGradient id="rg1" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12"/>
-              <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+              <stop offset="0%" stop-color="#e59400" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#e59400" stop-opacity="0"/>
             </radialGradient>
             <radialGradient id="rg2" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.28"/>
+              <stop offset="0%" stop-color="#e59400" stop-opacity="0.28"/>
               <stop offset="100%" stop-color="transparent"/>
             </radialGradient>
             <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
             <clipPath id="circle-clip"><circle cx="230" cy="230" r="200"/></clipPath>
           </defs>
-          <circle cx="230" cy="230" r="200" fill="url(#rg1)" stroke="rgba(245,158,11,0.18)" stroke-width="1.5"/>
-          <circle cx="230" cy="230" r="160" stroke="rgba(245,158,11,0.1)" stroke-width="1"/>
-          <circle cx="230" cy="230" r="120" stroke="rgba(245,158,11,0.12)" stroke-width="1"/>
-          <circle cx="230" cy="230" r="80"  stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
-          <circle cx="230" cy="230" r="40"  stroke="rgba(245,158,11,0.2)"  stroke-width="1"/>
-          <line x1="230" y1="30"  x2="230" y2="430" stroke="rgba(245,158,11,0.1)" stroke-width="1"/>
-          <line x1="30"  y1="230" x2="430" y2="230" stroke="rgba(245,158,11,0.1)" stroke-width="1"/>
-          <line x1="88"  y1="88"  x2="372" y2="372" stroke="rgba(245,158,11,0.06)" stroke-width="1"/>
-          <line x1="372" y1="88"  x2="88"  y2="372" stroke="rgba(245,158,11,0.06)" stroke-width="1"/>
+          <circle cx="230" cy="230" r="200" fill="url(#rg1)" stroke="rgba(229,148,0,0.18)" stroke-width="1.5"/>
+          <circle cx="230" cy="230" r="160" stroke="rgba(229,148,0,0.1)" stroke-width="1"/>
+          <circle cx="230" cy="230" r="120" stroke="rgba(229,148,0,0.12)" stroke-width="1"/>
+          <circle cx="230" cy="230" r="80"  stroke="rgba(229,148,0,0.15)" stroke-width="1"/>
+          <circle cx="230" cy="230" r="40"  stroke="rgba(229,148,0,0.2)"  stroke-width="1"/>
+          <line x1="230" y1="30"  x2="230" y2="430" stroke="rgba(229,148,0,0.1)" stroke-width="1"/>
+          <line x1="30"  y1="230" x2="430" y2="230" stroke="rgba(229,148,0,0.1)" stroke-width="1"/>
+          <line x1="88"  y1="88"  x2="372" y2="372" stroke="rgba(229,148,0,0.06)" stroke-width="1"/>
+          <line x1="372" y1="88"  x2="88"  y2="372" stroke="rgba(229,148,0,0.06)" stroke-width="1"/>
           <g clip-path="url(#circle-clip)">
             <path d="M230 230 L230 30 A200 200 0 0 1 370 370 Z" fill="url(#rg2)" opacity="0.7">
               <animateTransform attributeName="transform" type="rotate" from="0 230 230" to="360 230 230" dur="4s" repeatCount="indefinite"/>
             </path>
           </g>
-          <rect x="184" y="148" width="92" height="140" rx="10" fill="rgba(20,20,16,0.9)" stroke="rgba(245,158,11,0.5)" stroke-width="1.5"/>
-          <rect x="193" y="158" width="74" height="85" rx="5" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-          <path d="M215 162 L228 178 L220 185 L238 210" stroke="rgba(245,158,11,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
-          <rect x="200" y="252" width="14" height="8" rx="3" fill="rgba(245,158,11,0.25)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-          <rect x="220" y="252" width="20" height="8" rx="3" fill="rgba(245,158,11,0.25)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-          <rect x="246" y="252" width="14" height="8" rx="3" fill="rgba(245,158,11,0.25)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
-          <rect x="217" y="136" width="10" height="14" rx="3" fill="rgba(245,158,11,0.3)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
-          <circle cx="310" cy="155" r="5" fill="#f59e0b" opacity="0.9" filter="url(#glow)">
+          <rect x="184" y="148" width="92" height="140" rx="10" fill="rgba(20,20,16,0.9)" stroke="rgba(229,148,0,0.5)" stroke-width="1.5"/>
+          <rect x="193" y="158" width="74" height="85" rx="5" fill="rgba(229,148,0,0.08)" stroke="rgba(229,148,0,0.3)" stroke-width="1"/>
+          <path d="M215 162 L228 178 L220 185 L238 210" stroke="rgba(229,148,0,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+          <rect x="200" y="252" width="14" height="8" rx="3" fill="rgba(229,148,0,0.25)" stroke="rgba(229,148,0,0.3)" stroke-width="1"/>
+          <rect x="220" y="252" width="20" height="8" rx="3" fill="rgba(229,148,0,0.25)" stroke="rgba(229,148,0,0.3)" stroke-width="1"/>
+          <rect x="246" y="252" width="14" height="8" rx="3" fill="rgba(229,148,0,0.25)" stroke="rgba(229,148,0,0.3)" stroke-width="1"/>
+          <rect x="217" y="136" width="10" height="14" rx="3" fill="rgba(229,148,0,0.3)" stroke="rgba(229,148,0,0.4)" stroke-width="1"/>
+          <circle cx="310" cy="155" r="5" fill="#e59400" opacity="0.9" filter="url(#glow)">
             <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.5s" repeatCount="indefinite"/>
           </circle>
-          <circle cx="310" cy="155" r="12" stroke="#f59e0b" stroke-width="1" fill="none" opacity="0.4">
+          <circle cx="310" cy="155" r="12" stroke="#e59400" stroke-width="1" fill="none" opacity="0.4">
             <animate attributeName="r" values="5;22;5" dur="2.5s" repeatCount="indefinite"/>
             <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite"/>
           </circle>
-          <circle cx="148" cy="300" r="4" fill="#f59e0b" opacity="0.7" filter="url(#glow)">
+          <circle cx="148" cy="300" r="4" fill="#e59400" opacity="0.7" filter="url(#glow)">
             <animate attributeName="opacity" values="0.7;0.1;0.7" dur="3.2s" repeatCount="indefinite" begin="1s"/>
           </circle>
-          <circle cx="148" cy="300" r="10" stroke="#f59e0b" stroke-width="1" fill="none" opacity="0.3">
+          <circle cx="148" cy="300" r="10" stroke="#e59400" stroke-width="1" fill="none" opacity="0.3">
             <animate attributeName="r" values="4;20;4" dur="3.2s" repeatCount="indefinite" begin="1s"/>
             <animate attributeName="opacity" values="0.5;0;0.5" dur="3.2s" repeatCount="indefinite" begin="1s"/>
           </circle>
-          <circle cx="340" cy="310" r="3.5" fill="#f59e0b" opacity="0.6" filter="url(#glow)">
+          <circle cx="340" cy="310" r="3.5" fill="#e59400" opacity="0.6" filter="url(#glow)">
             <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.8s" repeatCount="indefinite" begin="0.6s"/>
           </circle>
-          <text x="230" y="193" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(245,158,11,0.6)">SIGNAL LOST</text>
-          <text x="230" y="205" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(245,158,11,0.4)">ERR: DSP_FAIL</text>
-          <text x="230" y="216" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(245,158,11,0.4)">DISPLAY: N/A</text>
-          <circle cx="230" cy="230" r="200" fill="none" stroke="rgba(245,158,11,0.22)" stroke-width="1.5"/>
+          <text x="230" y="193" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(229,148,0,0.6)">SIGNAL LOST</text>
+          <text x="230" y="205" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(229,148,0,0.4)">ERR: DSP_FAIL</text>
+          <text x="230" y="216" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(229,148,0,0.4)">DISPLAY: N/A</text>
+          <circle cx="230" cy="230" r="200" fill="none" stroke="rgba(229,148,0,0.22)" stroke-width="1.5"/>
         </svg>
       </div>
     </div>
@@ -825,12 +858,12 @@ footer{border-top:1px solid var(--border);padding:32px 0}
       </div>
       <div class="reveal-right">
         <div class="symptoms-grid">
-          <div class="symptom-card" style="--shimmer-delay:0"><span class="symptom-dot"></span><span class="symptom-text">Display gebrochen oder gesprungen</span></div>
-          <div class="symptom-card" style="--shimmer-delay:0.8"><span class="symptom-dot"></span><span class="symptom-text">Touch reagiert ungenau oder gar nicht</span></div>
-          <div class="symptom-card" style="--shimmer-delay:1.6"><span class="symptom-dot"></span><span class="symptom-text">Bild bleibt schwarz, Gerät startet aber</span></div>
-          <div class="symptom-card" style="--shimmer-delay:2.4"><span class="symptom-dot"></span><span class="symptom-text">Streifen, Flecken oder flackernde Anzeige</span></div>
-          <div class="symptom-card" style="--shimmer-delay:3.2"><span class="symptom-dot"></span><span class="symptom-text">Probleme nach Sturz, Druck oder Feuchtigkeit</span></div>
-          <div class="symptom-card" style="--shimmer-delay:4"><span class="symptom-dot"></span><span class="symptom-text">Fehleranzeige trotz eingelegtem Akku nach Öffnung</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:0"><span class="symptom-dot"></span><span class="symptom-text">Display gebrochen oder gesprungen</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:0.8"><span class="symptom-dot"></span><span class="symptom-text">Touch reagiert ungenau oder gar nicht</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:1.6"><span class="symptom-dot"></span><span class="symptom-text">Bild bleibt schwarz, Gerät startet aber</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:2.4"><span class="symptom-dot"></span><span class="symptom-text">Streifen, Flecken oder flackernde Anzeige</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:3.2"><span class="symptom-dot"></span><span class="symptom-text">Probleme nach Sturz, Druck oder Feuchtigkeit</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:4"><span class="symptom-dot"></span><span class="symptom-text">Fehleranzeige trotz eingelegtem Akku nach Öffnung</span></div>
         </div>
       </div>
     </div>
@@ -851,22 +884,22 @@ footer{border-top:1px solid var(--border);padding:32px 0}
         <line x1="0" y1="1" x2="100" y2="1"/>
       </svg>
 
-      <div class="process-card tilt-card reveal delay-1" style="--shimmer-delay:0">
+      <div class="process-card tilt-card spotlight-card reveal delay-1" style="--shimmer-delay:0">
         <div class="process-num">1</div>
         <div class="process-title">Fehler schildern</div>
         <p class="process-text">Modell, Fehlerbild und 2–3 Fotos reichen für eine erste grobe Einordnung – ob Display, Flex, Stecker oder Mainboard betroffen ist.</p>
       </div>
-      <div class="process-card tilt-card reveal delay-2" style="--shimmer-delay:1">
+      <div class="process-card tilt-card spotlight-card reveal delay-2" style="--shimmer-delay:1">
         <div class="process-num">2</div>
         <div class="process-title">Einschätzung erhalten</div>
         <p class="process-text">Realistische Vorprüfung mit Reparaturwahrscheinlichkeit, möglichem Risiko und grober Kostenrichtung. Keine leeren Versprechen.</p>
       </div>
-      <div class="process-card tilt-card reveal delay-3" style="--shimmer-delay:2">
+      <div class="process-card tilt-card spotlight-card reveal delay-3" style="--shimmer-delay:2">
         <div class="process-num">3</div>
         <div class="process-title">Gerät einsenden</div>
         <p class="process-text">Nach Freigabe wird dein Garmin fachgerecht geöffnet, geprüft und die betroffene Einheit instandgesetzt oder ersetzt.</p>
       </div>
-      <div class="process-card tilt-card reveal delay-4" style="--shimmer-delay:3">
+      <div class="process-card tilt-card spotlight-card reveal delay-4" style="--shimmer-delay:3">
         <div class="process-num">4</div>
         <div class="process-title">Prüfung & Rückversand</div>
         <p class="process-text">Funktionstest, Anzeigeprüfung, Rückversand. Du bekommst eine klare Rückmeldung – was gemacht wurde und was nicht.</p>
@@ -887,20 +920,20 @@ footer{border-top:1px solid var(--border);padding:32px 0}
         <div class="trust-card-label">Was hier nicht passiert</div>
         <h3 class="trust-card-h3">Keine falschen Versprechen</h3>
         <ul class="trust-list">
-          <li><span class="trust-list-icon">✕</span>Keine pauschalen Erfolgsgarantien</li>
-          <li><span class="trust-list-icon">✕</span>Keine künstliche Verknappung ohne Substanz</li>
-          <li><span class="trust-list-icon">✕</span>Keine Preisfloskeln ohne Diagnosebezug</li>
-          <li><span class="trust-list-icon">✕</span>Keine technische Schaumsprache</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Keine pauschalen Erfolgsgarantien</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Keine künstliche Verknappung ohne Substanz</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Keine Preisfloskeln ohne Diagnosebezug</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Keine technische Schaumsprache</li>
         </ul>
       </div>
       <div class="trust-card trust-card-amber reveal-right">
         <div class="trust-card-label">Besserer Ansatz</div>
         <h3 class="trust-card-h3">Klare Argumente für die Praxis</h3>
         <ul class="trust-list">
-          <li><span class="trust-list-icon">✓</span>Funktion im Revier zählt mehr als Optik</li>
-          <li><span class="trust-list-icon">✓</span>Geräteausfall kostet Zeit und Einsatzfähigkeit</li>
-          <li><span class="trust-list-icon">✓</span>Wenn Reparatur nicht sinnvoll ist, wird das klar gesagt</li>
-          <li><span class="trust-list-icon">✓</span>Problem → Wahrscheinlichkeit → Ablauf → nächster Schritt</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Funktion im Revier zählt mehr als Optik</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Geräteausfall kostet Zeit und Einsatzfähigkeit</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Wenn Reparatur nicht sinnvoll ist, wird das klar gesagt</li>
+          <li><span class="trust-list-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Problem, Wahrscheinlichkeit, Ablauf, nächster Schritt</li>
         </ul>
       </div>
     </div>
@@ -948,17 +981,17 @@ footer{border-top:1px solid var(--border);padding:32px 0}
         <h2 class="contact-h2">Kein Blindflug mehr.<span>Fehlerbild klären.</span></h2>
         <p class="contact-body">Je konkreter deine Angaben, desto schneller und belastbarer die Einschätzung. Modell, Fehlerbeschreibung und Fotos reichen für den ersten Schritt.</p>
         <div class="contact-perks">
-          <div class="contact-perk"><div class="perk-icon">📋</div>Ersteinschätzung kostenlos und unverbindlich</div>
-          <div class="contact-perk"><div class="perk-icon">⏱</div>Antwort innerhalb von 48 Stunden</div>
-          <div class="contact-perk"><div class="perk-icon">🎯</div>Spezialisiert auf Garmin Alpha 200i und 200K</div>
-          <div class="contact-perk"><div class="perk-icon">🔒</div>Keine Reparatur ohne deine Freigabe</div>
+          <div class="contact-perk"><div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>Ersteinschätzung kostenlos und unverbindlich</div>
+          <div class="contact-perk"><div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>Antwort innerhalb von 48 Stunden</div>
+          <div class="contact-perk"><div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>Spezialisiert auf Garmin Alpha 200i und 200K</div>
+          <div class="contact-perk"><div class="perk-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>Keine Reparatur ohne deine Freigabe</div>
         </div>
       </div>
       <div class="reveal-right">
         <div class="form-card">
           <div class="form-title">Fehlerbild einsenden</div>
-          <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" placeholder="Max Mustermann"/></div>
-          <div class="form-group"><label class="form-label">E-Mail oder Telefon</label><input class="form-input" type="text" placeholder="kontakt@beispiel.de"/></div>
+          <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" placeholder="Dein Name"/></div>
+          <div class="form-group"><label class="form-label">E-Mail oder Telefon</label><input class="form-input" type="text" placeholder="deine@adresse.de oder Rufnummer"/></div>
           <div class="form-group"><label class="form-label">Modell</label><input class="form-input" type="text" placeholder="Garmin Alpha 200i / 200K"/></div>
           <div class="form-group"><label class="form-label">Fehlerbeschreibung</label><textarea class="form-textarea" placeholder="Was genau ist passiert? Sturz? Öffnung? Display? Touch? Schwarzer Bildschirm? Je mehr Details, desto besser."></textarea></div>
           <button class="btn-primary form-submit" onclick="handleSubmit(this)">Reparaturanfrage senden →</button>
@@ -974,7 +1007,11 @@ footer{border-top:1px solid var(--border);padding:32px 0}
   <div class="container">
     <div class="footer-inner">
       <span class="footer-brand">Garmin Alpha 200i / 200K Displayreparatur</span>
-      <span class="footer-copy">Spezialisierter Reparaturservice · Alle Angaben ohne Gewähr · Ersteinschätzung unverbindlich</span>
+      <div class="footer-links">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+      </div>
+      <span class="footer-copy">Spezialisierter Reparaturservice &middot; Alle Angaben ohne Gewähr &middot; Ersteinschätzung unverbindlich</span>
     </div>
   </div>
 </footer>
@@ -986,7 +1023,7 @@ footer{border-top:1px solid var(--border);padding:32px 0}
 (function(){
   const canvas = document.getElementById('topo-canvas');
   const ctx = canvas.getContext('2d');
-  const AMBER = [245, 158, 11];
+  const AMBER = [229, 148, 0];
   let W, H, scrollY = 0, raf;
 
   // Simplex-like smooth noise via multiple sine harmonics
@@ -1205,6 +1242,17 @@ if(connector){
 }
 
 /* ══════════════════════════════════════
+   SPOTLIGHT BORDER TRACKING
+══════════════════════════════════════ */
+document.querySelectorAll('.spotlight-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+/* ══════════════════════════════════════
    CARD TILT (3D perspective on hover)
 ══════════════════════════════════════ */
 document.querySelectorAll('.tilt-card').forEach(card => {
@@ -1267,7 +1315,7 @@ function toggleFaq(btn){
    FORM SUBMIT
 ══════════════════════════════════════ */
 function handleSubmit(btn){
-  btn.textContent = '✓ Anfrage gesendet';
+  btn.textContent = 'Anfrage gesendet';
   btn.style.background = '#16a34a';
   btn.style.animation = 'none';
   btn.disabled = true;
