@@ -14,7 +14,9 @@
   <meta name="geo.placename" content="Deutschland"/>
   <meta name="content-language" content="de"/>
   <link rel="canonical" href="https://DEINE-DOMAIN.de/garmin-alpha-200i-200k-displayreparatur"/>
-  <link rel="alternate" hreflang="de" href="https://DEINE-DOMAIN.de/garmin-alpha-200i-200k-displayreparatur"/>
+  <link rel="alternate" hreflang="de-DE" href="https://DEINE-DOMAIN.de/garmin-alpha-200i-200k-displayreparatur"/>
+  <link rel="alternate" hreflang="de-AT" href="https://DEINE-DOMAIN.de/garmin-alpha-200i-200k-displayreparatur"/>
+  <link rel="alternate" hreflang="de-CH" href="https://DEINE-DOMAIN.de/garmin-alpha-200i-200k-displayreparatur"/>
   <link rel="alternate" hreflang="x-default" href="https://DEINE-DOMAIN.de/garmin-alpha-200i-200k-displayreparatur"/>
 
   <!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══ -->
@@ -26,6 +28,7 @@
   <meta property="og:image" content="https://DEINE-DOMAIN.de/og-image.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Garmin Alpha 200i GPS-Gerät – Displayreparatur für Jäger und Hundeführer"/>
   <meta property="og:site_name" content="Garmin Alpha Displayreparatur"/>
 
   <!-- ═══ TWITTER / X CARD ═══ -->
@@ -66,11 +69,19 @@
           "postalCode": "DEINE PLZ",
           "addressCountry": "DE"
         },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Deutschland"
-        },
+        "areaServed": [
+          {"@type": "Country", "name": "Deutschland"},
+          {"@type": "Country", "name": "Österreich"},
+          {"@type": "Country", "name": "Schweiz"}
+        ],
         "priceRange": "€€",
+        "_comment_aggregateRating": "Aktivieren sobald echte Bewertungen vorliegen – Werte anpassen!",
+        "_aggregateRating_template": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "10",
+          "bestRating": "5"
+        },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -142,6 +153,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Modellbezeichnung, Fehlerbild, Zeitpunkt des Defekts, eventuelle Vorschäden und Fotos. Das spart Rückfragen und beschleunigt die Einschätzung erheblich."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange dauert die Reparatur insgesamt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Reparaturdauer hängt vom Schadensumfang ab. In den meisten Fällen ist der LCD-Austausch oder die Touchscreen-Reparatur innerhalb von 3–5 Werktagen nach Geräteeingang abgeschlossen. Hinzu kommen Versandzeiten – der Rückversand erfolgt deutschlandweit, nach Österreich und in die Schweiz in der Regel innerhalb von 2–3 Werktagen."
             }
           }
         ]
@@ -232,7 +251,7 @@
           {"@type": "ListItem", "position": 2, "name": "Touch reagiert ungenau oder gar nicht"},
           {"@type": "ListItem", "position": 3, "name": "Bild bleibt schwarz, Gerät startet aber"},
           {"@type": "ListItem", "position": 4, "name": "Streifen, Flecken oder flackernde Anzeige"},
-          {"@type": "ListItem", "position": 5, "name": "Probleme nach Sturz, Druck oder Feuchtigkeit"},
+          {"@type": "ListItem", "position": 5, "name": "Probleme nach Sturz, Druck, Feuchtigkeit oder Wasserschaden"},
           {"@type": "ListItem", "position": 6, "name": "Fehleranzeige trotz eingelegtem Akku nach Öffnung"}
         ]
       }
@@ -332,7 +351,7 @@ body::before{
 /* ══════════════════════════════════════
    TYPOGRAPHY
 ══════════════════════════════════════ */
-h1,h2,h3{font-family:'Outfit',sans-serif;line-height:1.02;letter-spacing:-0.035em;font-variant-numeric:tabular-nums;text-wrap:balance}
+h1,h2,h3{font-family:'Outfit',system-ui,-apple-system,sans-serif;line-height:1.02;letter-spacing:-0.035em;font-variant-numeric:tabular-nums;text-wrap:balance}
 
 /* Screen-reader only — visible to crawlers and assistive tech */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -369,7 +388,7 @@ nav.scrolled{
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
 .nav-brand{display:flex;flex-direction:column;gap:2px}
 .nav-brand-top{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted)}
-.nav-brand-name{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text-primary)}
+.nav-brand-name{font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:18px;font-weight:700;color:var(--text-primary)}
 .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
 .btn-ghost{
@@ -476,7 +495,7 @@ nav.scrolled{
 
 .hero-sub{
   font-size:clamp(1.2rem,2vw,1.65rem);
-  font-family:'Outfit',sans-serif;font-weight:600;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-weight:600;
   color:var(--text-tertiary);margin-bottom:24px;
   max-width:480px;
   animation:hero-fade-up 0.9s var(--ease-out) 260ms both;
@@ -528,7 +547,7 @@ nav.scrolled{
 .stat-item:last-child{border-right:none}
 .stat-item:hover{background:rgba(var(--amber-rgb),0.04)}
 .stat-num{
-  font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:900;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:2.6rem;font-weight:900;
   color:var(--amber);line-height:1;letter-spacing:-0.03em;
   font-variant-numeric:tabular-nums;
 }
@@ -576,7 +595,7 @@ section{padding:80px 0}
 .symptom-num{
   flex-shrink:0;width:28px;height:28px;border-radius:var(--radius-sm);
   background:rgba(var(--amber-rgb),0.12);border:1px solid rgba(var(--amber-rgb),0.2);
-  font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:12px;font-weight:700;
   color:var(--amber);display:flex;align-items:center;justify-content:center;
 }
 .symptom-text{font-size:14px;color:var(--text-secondary);line-height:1.6}
@@ -621,12 +640,12 @@ section{padding:80px 0}
 .process-num{
   width:52px;height:52px;border-radius:var(--radius-md);
   background:var(--amber);color:#0d0d0b;
-  font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:1.6rem;font-weight:900;
   display:flex;align-items:center;justify-content:center;
   margin-bottom:20px;box-shadow:0 4px 16px rgba(var(--amber-rgb),0.35);
 }
 .process-title{
-  font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:700;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:1.25rem;font-weight:700;
   text-transform:uppercase;color:var(--text-primary);margin-bottom:12px;
 }
 .process-text{font-size:13.5px;color:var(--text-secondary);line-height:1.7}
@@ -675,14 +694,14 @@ section{padding:80px 0}
   background:rgba(var(--amber-rgb),0.06);border:1px solid var(--border-amber);
   box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
 }
-.faq-side-card h3{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--amber);text-transform:uppercase;margin-bottom:10px}
+.faq-side-card h3{font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:1.1rem;font-weight:700;color:var(--amber);text-transform:uppercase;margin-bottom:10px}
 .faq-side-card p{font-size:14px;color:var(--text-secondary);line-height:1.7}
 .faq-item{border:1px solid var(--glass-border);border-radius:var(--radius-md);background:var(--glass-bg);overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s,background 0.3s;box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.04)}
 .faq-item:hover{border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.02)}
 .faq-item.open{border-color:var(--border-amber);box-shadow:var(--shadow-amber)}
 .faq-q{
   width:100%;background:none;border:none;color:var(--text-primary);
-  font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:1.15rem;font-weight:700;
   text-transform:uppercase;text-align:left;padding:22px 24px;cursor:pointer;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
   letter-spacing:0.02em;transition:color 0.2s;
@@ -728,7 +747,7 @@ section{padding:80px 0}
   box-shadow:var(--shadow-tinted),inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .form-title{
-  font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:1.5rem;font-weight:700;
   text-transform:uppercase;margin-bottom:28px;color:var(--text-primary);
 }
 .form-group{margin-bottom:14px}
@@ -761,7 +780,7 @@ section{padding:80px 0}
 ══════════════════════════════════════ */
 footer{border-top:1px solid var(--border);padding:40px 0}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.footer-brand{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--text-tertiary);letter-spacing:-0.02em}
+.footer-brand{font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:16px;font-weight:700;color:var(--text-tertiary);letter-spacing:-0.02em}
 .footer-copy{font-size:12px;color:var(--text-muted);line-height:1.6}
 .footer-links{display:flex;gap:20px;align-items:center}
 .footer-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
@@ -861,15 +880,16 @@ footer{border-top:1px solid var(--border);padding:40px 0}
         Für Jäger · Hundeführer · Revierpraxis
       </div>
 
-      <h1 class="hero-h1" id="scramble-h1">
+      <h1 class="sr-only">Garmin Alpha 200i & 200K Displayreparatur – Spezialist für Jagd-GPS und Hundeortung</h1>
+      <div class="hero-h1" id="scramble-h1" aria-hidden="true" role="presentation">
         <span class="scramble-target" data-text="Garmin Alpha Display defekt?">Garmin Alpha Display defekt?</span>
         <span class="accent scramble-target" data-text="Nicht raten." style="display:block">Nicht raten.</span>
-      </h1>
+      </div>
 
       <p class="hero-sub parallax-mid">Spezialisierte Diagnose & Reparatur für Garmin Alpha 200i / 200K</p>
 
       <p class="hero-body">
-        Gebrochenes Display, schwarzer Bildschirm, Touch-Ausfall, Bildfehler nach Sturz – wenn dein Garmin im Revier versagt, brauchst du keine allgemeine Handywerkstatt. Du brauchst klare Einschätzung: Was ist kaputt? Lohnt sich die Reparatur? Was kostet der nächste Schritt?
+        Gebrochenes Display, schwarzer Bildschirm, Touch-Ausfall, Bildfehler nach Sturz oder Wasserschaden – wenn dein GPS-Handgerät für die Hundeortung im Revier versagt, brauchst du keine allgemeine Handywerkstatt. Du brauchst eine echte Alternative zum Garmin Support: klare Einschätzung, ob sich ein LCD-Austausch lohnt, und einen transparenten Kostenvoranschlag. Versand in DE, AT &amp; CH – einfach per Post einsenden.
       </p>
 
       <div class="hero-ctas">
@@ -978,7 +998,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
           <div class="symptom-card spotlight-card" style="--shimmer-delay:0.8"><span class="symptom-num">02</span><span class="symptom-text">Touch reagiert ungenau oder gar nicht</span></div>
           <div class="symptom-card spotlight-card" style="--shimmer-delay:1.6"><span class="symptom-num">03</span><span class="symptom-text">Bild bleibt schwarz, Gerät startet aber</span></div>
           <div class="symptom-card spotlight-card" style="--shimmer-delay:2.4"><span class="symptom-num">04</span><span class="symptom-text">Streifen, Flecken oder flackernde Anzeige</span></div>
-          <div class="symptom-card spotlight-card" style="--shimmer-delay:3.2"><span class="symptom-num">05</span><span class="symptom-text">Probleme nach Sturz, Druck oder Feuchtigkeit</span></div>
+          <div class="symptom-card spotlight-card" style="--shimmer-delay:3.2"><span class="symptom-num">05</span><span class="symptom-text">Probleme nach Sturz, Druck, Feuchtigkeit oder Wasserschaden</span></div>
           <div class="symptom-card spotlight-card" style="--shimmer-delay:4"><span class="symptom-num">06</span><span class="symptom-text">Fehleranzeige trotz eingelegtem Akku nach Öffnung</span></div>
         </div>
       </div>
@@ -1008,12 +1028,12 @@ footer{border-top:1px solid var(--border);padding:40px 0}
       <div class="process-card tilt-card spotlight-card reveal delay-2" style="--shimmer-delay:1">
         <div class="process-num">2</div>
         <div class="process-title">Einschätzung erhalten</div>
-        <p class="process-text">Realistische Vorprüfung mit Reparaturwahrscheinlichkeit, möglichem Risiko und grober Kostenrichtung. Keine leeren Versprechen.</p>
+        <p class="process-text">Realistische Vorprüfung mit Reparaturwahrscheinlichkeit, möglichem Risiko und konkretem Kostenvoranschlag. Keine leeren Versprechen.</p>
       </div>
       <div class="process-card tilt-card spotlight-card reveal delay-3" style="--shimmer-delay:2">
         <div class="process-num">3</div>
         <div class="process-title">Gerät einsenden</div>
-        <p class="process-text">Nach Freigabe wird dein Garmin fachgerecht geöffnet, geprüft und die betroffene Einheit instandgesetzt oder ersetzt.</p>
+        <p class="process-text">Nach Freigabe wird dein Garmin fachgerecht geöffnet, geprüft und die betroffene Einheit – ob LCD-Austausch, Touchscreen oder Flexkabel – instandgesetzt oder ersetzt.</p>
       </div>
       <div class="process-card tilt-card spotlight-card reveal delay-4" style="--shimmer-delay:3">
         <div class="process-num">4</div>
@@ -1087,6 +1107,10 @@ footer{border-top:1px solid var(--border);padding:40px 0}
           <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a5"><span itemprop="name">Was muss ich vor dem Einsenden vorbereiten?</span><span class="faq-icon" aria-hidden="true">+</span></button>
           <div class="faq-a" id="faq-a5" role="region" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Modellbezeichnung, Fehlerbild, Zeitpunkt des Defekts, eventuelle Vorschäden und Fotos. Das spart Rückfragen und beschleunigt die Einschätzung erheblich.</span></div>
         </div>
+        <div class="faq-item" role="listitem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-a6"><span itemprop="name">Wie lange dauert die Reparatur insgesamt?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a6" role="region" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Die Reparaturdauer hängt vom Schadensumfang ab. In den meisten Fällen ist der LCD-Austausch oder die Touchscreen-Reparatur innerhalb von 3–5 Werktagen nach Geräteeingang abgeschlossen. Hinzu kommen Versandzeiten – der Rückversand erfolgt deutschlandweit, nach Österreich und in die Schweiz in der Regel innerhalb von 2–3 Werktagen.</span></div>
+        </div>
       </div>
       <div class="faq-side reveal-right">
         <div class="faq-side-card">
@@ -1100,6 +1124,10 @@ footer{border-top:1px solid var(--border);padding:40px 0}
         <div class="faq-side-card">
           <h3>Kein Risiko</h3>
           <p>Ersteinschätzung ist kostenlos. Reparatur nur nach deiner Freigabe und klarer Kostenkommunikation.</p>
+        </div>
+        <div class="faq-side-card">
+          <h3>Alternative zum Garmin Support</h3>
+          <p>Schnellere Reparaturdauer, persönlicher Kontakt und transparenter Kostenvoranschlag. Deutschlandweiter Versand – auch nach Österreich und in die Schweiz.</p>
         </div>
       </div>
     </div>
@@ -1143,7 +1171,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
     <p>Dieser Service ist spezialisiert auf die Reparatur defekter Displays am Garmin Alpha 200i und Garmin Alpha 200K. Die häufigsten Defekte sind: gebrochenes oder gesprungenes Display, Touch reagiert nicht oder ungenau, schwarzer Bildschirm bei funktionierendem Gerät, Streifen oder Flecken in der Anzeige, Schäden nach Sturz, Druck oder Feuchtigkeit, sowie Fehleranzeigen nach unsachgemäßer Öffnung.</p>
     <p>Der Ablauf ist in vier Schritten strukturiert: Erstens Fehlerbild schildern (Modell, Beschreibung, Fotos), zweitens eine kostenlose Ersteinschätzung mit Reparaturwahrscheinlichkeit und grober Kostenrichtung erhalten, drittens das Gerät einsenden, und viertens Prüfung mit Funktionstest und Rückversand.</p>
     <p>Die Ersteinschätzung ist kostenlos und unverbindlich. Eine Antwort erfolgt in der Regel innerhalb von 48 Stunden. Es werden keine pauschalen Erfolgsgarantien gegeben. Wenn eine Reparatur wirtschaftlich nicht sinnvoll ist, wird das offen kommuniziert.</p>
-    <p>Der Service richtet sich gezielt an Jäger und Hundeführer, die ihr Garmin Alpha GPS-Gerät im jagdlichen Einsatz und in der Hundeortung zuverlässig benötigen.</p>
+    <p>Der Service richtet sich gezielt an Jäger und Hundeführer, die ihr Garmin Alpha GPS-Handgerät im jagdlichen Einsatz und in der Hundeortung zuverlässig benötigen. Als Alternative zum Garmin Support bieten wir schnellere Reparaturdauer, persönlichen Kontakt und deutschlandweiten Versand – auch nach Österreich und in die Schweiz.</p>
   </div>
   <meta itemprop="author" content="Garmin Alpha Displayreparatur"/>
   <meta itemprop="inLanguage" content="de-DE"/>
@@ -1258,7 +1286,15 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   window.addEventListener('scroll', () => { scrollY = window.scrollY; }, {passive:true});
   window.addEventListener('resize', resize);
   resize();
-  draw();
+
+  // Pause canvas when not visible (Core Web Vitals optimization)
+  const canvasObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { if (!raf) draw(); }
+      else { cancelAnimationFrame(raf); raf = null; }
+    });
+  }, { threshold: 0 });
+  canvasObs.observe(canvas);
 })();
 
 /* ══════════════════════════════════════
