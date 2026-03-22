@@ -254,6 +254,26 @@
           {"@type": "ListItem", "position": 5, "name": "Probleme nach Sturz, Druck, Feuchtigkeit oder Wasserschaden"},
           {"@type": "ListItem", "position": 6, "name": "Fehleranzeige trotz eingelegtem Akku nach Öffnung"}
         ]
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://DEINE-DOMAIN.de/#image-defekt",
+        "contentUrl": "https://DEINE-DOMAIN.de/garmin-alpha-display-defekt.webp",
+        "name": "Garmin Alpha 200i mit gebrochenem Display",
+        "description": "Garmin Alpha 200i GPS-Handgerät mit gesprungener Touchscreen-Anzeige auf professionellem ESD-Reparaturarbeitsplatz.",
+        "encodingFormat": "image/webp",
+        "width": "870",
+        "height": "1160"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://DEINE-DOMAIN.de/#image-repariert",
+        "contentUrl": "https://DEINE-DOMAIN.de/garmin-alpha-display-repariert.webp",
+        "name": "Repariertes Garmin Alpha 200i mit funktionierendem Display",
+        "description": "Garmin Alpha 200i nach erfolgreichem LCD-Austausch mit aktiver Kartenansicht zur Hundeortung.",
+        "encodingFormat": "image/webp",
+        "width": "870",
+        "height": "1160"
       }
     ]
   }
@@ -806,6 +826,16 @@ footer{border-top:1px solid var(--border);padding:40px 0}
 }
 
 /* ══════════════════════════════════════
+   BEFORE / AFTER IMAGES
+══════════════════════════════════════ */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
+.ba-card{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);background:var(--bg-elevated)}
+.ba-card img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
+.ba-badge{position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:var(--radius-sm);font-family:'Outfit',system-ui,-apple-system,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em}
+.ba-badge-defekt{background:rgba(220,38,38,0.85);color:#fff}
+.ba-badge-repariert{background:rgba(var(--amber-rgb),0.9);color:#0c0c0a}
+
+/* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
 @media(max-width:900px){
@@ -824,6 +854,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .faq-side-card{min-width:260px;flex-shrink:0}
 }
 @media(max-width:640px){
+  .ba-grid{grid-template-columns:1fr;gap:20px}
   .nav-links .btn-ghost:not(:last-child){display:none}
   .symptoms-grid{grid-template-columns:1fr}
   .process-grid{grid-template-columns:1fr}
@@ -979,6 +1010,31 @@ footer{border-top:1px solid var(--border);padding:40px 0}
     </div>
   </div>
 </div>
+
+<!-- ════════ VORHER / NACHHER ════════ -->
+<section aria-label="Vorher-Nachher-Vergleich: Garmin Alpha Displayreparatur" style="padding:48px 0 0">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto">
+      <span class="section-label">Ergebnis</span>
+      <h2 class="section-h2">Vorher &amp; <em>Nachher</em></h2>
+      <p class="section-body">Vom gebrochenen Display zur vollen Funktion – so sieht ein typischer LCD-Austausch am Garmin Alpha aus.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card reveal-left">
+        <span class="ba-badge ba-badge-defekt">Vorher</span>
+        <img src="garmin-alpha-display-defekt.webp"
+             alt="Garmin Alpha 200i mit gebrochenem Display auf Reparatur-Arbeitsplatz – Touchscreen gesprungen nach Sturz"
+             width="870" height="1160" loading="lazy" decoding="async"/>
+      </div>
+      <div class="ba-card reveal-right">
+        <span class="ba-badge ba-badge-repariert">Nachher</span>
+        <img src="garmin-alpha-display-repariert.webp"
+             alt="Repariertes Garmin Alpha 200i GPS-Gerät mit funktionierendem Display und Kartenansicht für Hundeortung"
+             width="870" height="1160" loading="lazy" decoding="async"/>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ════════ SYMPTOMS ════════ -->
 <section id="diagnose" aria-label="Typische Fehlerbilder am Garmin Alpha Display" style="background-image:radial-gradient(ellipse at 70% 30%,rgba(var(--amber-rgb),0.04) 0%,transparent 45%)">
